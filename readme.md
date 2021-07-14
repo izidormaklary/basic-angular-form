@@ -21,11 +21,12 @@ using the **angular cli**.
 - "list" is also working, but there are some changes appearance-wise in order
 - must-have features covered
 - routing is also available (through a nav-bar)
+- deleting by email address
 
 ### Todo
 
 - missing homepage
-- finishing up with deleting by email
+- putting email deletion into new component
 
 
 # Getting started:

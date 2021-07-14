@@ -1,21 +1,45 @@
+<div class="row my-5">
+  <div class="col-lg-6 offset-lg-3  col-sm-8 offset-sm-2 ">
+    <form name="delMailForm" class=""  #delMailForm="ngForm"
+          (ngSubmit)="removeFriend(delMailForm)" novalidate>
+      <div class="form-group">
+                <label for="emailToDel">Delete persons with email address:</label>
+                <input type="email" id="emailToDel" name="emailToDel" class="form-control"
+                       ngModel
+                       required
+                       pattern="^([a-zA-Z0-9_.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([a-zA-Z0-9-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$"
+                       #emailToDel="ngModel"
+                       [class.is-invalid]="emailToDel.invalid && emailToDel.touched"
+                       [class.is-valid]="emailToDel.valid"
+                      >
+      </div>
+      <button class="btn d-block mx-auto text-center w-25 btn-primary form-control" id="submit" type="submit"
+              [disabled]="delMailForm.invalid"
+
+      > Submit
+      </button>
+    </form>
+  </div>
+</div>
 
 
 <div class="row my-5">
-  <div class="col-lg-3 col-md-4 col-sm-6 " *ngFor="let friend of allFriends">
-    <div class="card">
+  <div class="col-lg-4 col-md-6 col-sm-6 " *ngFor="let friend of allFriends">
+    <div class="card my-3 mx-1 shadow text-center ">
+      <h3 class="card-header"> {{friend.firstname + " " + friend.lastname}}</h3>
       <div class="card-body">
-        <h5 class="card-title"> {{friend.firstname + " " + friend.lastname}}</h5>
+
+        <h4 class="card-title">Favourite language:</h4>
+
+          <p>{{friend.language}}<p>
 
 
-        Favourite language: <span class=""></span>{{friend.language}}
-
+        <h4 class="card-title">Contacts:</h4>
+          <p>{{friend.email}}</p>
+          <p>{{friend.phone}}</p>
 
       </div>
-      <h6>Contacts:</h6>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{friend.email}}</li>
-        <li class="list-group-item">{{friend.phone}}</li>
-      </ul>
+
     </div>
   </div>
 </div>

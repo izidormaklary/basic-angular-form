@@ -33,9 +33,10 @@ app.post('/allFriends',function (request, response){
     allFriends.push(request.body)
 })
 app.post(`/allFriends/delete-mail`,function (request, response){
-    allFriends.filter( user=> {
-         user.email = request.body ? allFriends.slice(user.index):"";
-    })
+    allFriends.filter( (user, index) =>
+        user.email === request.body.email ? allFriends.splice(index):"user.email"
+    )
+
 
 })
 

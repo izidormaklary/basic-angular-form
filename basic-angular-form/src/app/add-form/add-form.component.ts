@@ -29,7 +29,6 @@ export class AddFormComponent implements OnInit {
 
     this.addFriendService.addFriend(this.friendModel).subscribe(data => alert("s"), error => alert("it didn't work"));
     this.router.navigate(['list']);
-
   }
 
 }

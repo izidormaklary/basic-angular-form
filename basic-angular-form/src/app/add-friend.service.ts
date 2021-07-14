@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {Friend} from "./friend";
 import {OnInit} from "@angular/core";
+import {parseJson} from "@angular/cli/utilities/json-file";
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,6 @@ export class AddFriendService {
    return this.http.post( this.url, friend)
   }
   removeFriendByEmail(email:string){
-    return this.http.post( this.url+"/delete-mail", email)
+    return this.http.post( this.url+"/delete-mail", { email})
   }
 }
