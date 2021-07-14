@@ -1,6 +1,11 @@
-{{friendModel | json}}
+n{{friendModel | json}}
 {{ friendsForm.value |json}}
-<div name="friendsForm" class="w-50 mx-auto" ngForm #friendsForm="ngForm">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3  col-sm-8 offset-sm-2 ">
+<form name="friendsForm" class="" ngForm #friendsForm="ngForm"
+      (ngSubmit)="addFriend()" novalidate>
   <div class="form-group">
     <label for="firstname">Firstname</label>
     <input type="text" id="firstname" name="firstname" class="form-control"
@@ -51,8 +56,30 @@
       <option *ngFor="let lang of languages; index as i " value="{{ lang }}">{{lang}}</option>
     </select>
   </div>
-  <button class="btn d-block mx-auto text-center w-25 btn-primary form-control" id="submit"
+  <button class="btn d-block mx-auto text-center w-25 btn-primary form-control" id="submit" type="submit"
           [disabled]="friendsForm.invalid"
-  > Submit</button>
+  > Submit
+  </button>
+</form>
+  </div>
 </div>
+<div class="row my-5">
+  <div class="col-lg-3 col-md-4 col-sm-6 " *ngFor="let friend of allFriends">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> {{friend.firstname + " " + friend.lastname}}</h5>
 
+
+        Favourite language: <span class="" ></span>{{friend.language}}
+
+
+      </div>
+      <h6>Contacts:</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{friend.email}}</li>
+        <li class="list-group-item">{{friend.phone}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
