@@ -14,4 +14,7 @@ export class AddFriendService {
   addFriend(friend : Friend){
    return this.http.post( this.url, friend)
   }
+  removeFriendByEmail(email:string){
+    return this.http.post( this.url+"/delete-mail", email)
+  }
 }
